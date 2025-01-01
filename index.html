@@ -21,16 +21,20 @@
 }
 
 
-        h1 {
-            color: yellow;
-            margin: 20px 0; /* Space above and below the title */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: add shadow for better visibility */
-            position: fixed; 
-            top: 20px; /* Distance from the top of the viewport */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust to center the title */
-            font-size: 48px; /* Increase the font size (adjust as needed) */
-        }
+h1 {
+    color: #ff50b2; /* Text color */
+    margin: 20px 0; /* Space above and below the title */
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.7), /* Right shadow */
+        4px 4px 0 rgba(0, 0, 0, 0.7), /* Further right shadow */
+        6px 6px 0 rgba(0, 0, 0, 0.7), /* Even further right shadow */
+        8px 8px 0 rgba(0, 0, 0, 0.7); /* Furthest right shadow */
+    position: fixed; 
+    top: 20px; /* Distance from the top of the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the title */
+    font-size: 48px; /* Increase the font size (adjust as needed) */
+}
         .content {
             text-align: left; /* Align content to the left */
             position: absolute; /* Position the content absolutely */
@@ -57,6 +61,13 @@ button:hover {
     color: white; /* Change text color to white on hover */
 }
 
+button:active, /* Change color when button is clicked */
+button.active {
+    background-color: pink; /* Change background color to pink when active */
+    color: black; /* Keep text color black when active */
+}
+
+
 
 /* Animated text styles */
 .animated-text {
@@ -79,6 +90,61 @@ button:hover {
         text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff007f, 0 0 60px #ff007f, 0 0 70px #ff007f, 0 0 80px #ff007f;
     }
 }
+
+
+
+.love-letter-message {
+    font-size: 24px; /* Font size for the message */
+    font-style: italic;
+    color: white; /* Text color */
+    margin-bottom: 0; /* Remove space between the message and the emoji */
+    position: fixed; /* Position the message absolutely */
+    top: 30px; /* Distance from the top of the viewport */
+    right: 50px; /* Distance from the right side of the viewport */
+}
+
+ /* Love letter emoji styles */
+        .love-letter {
+            position: fixed; /* Position the emoji absolutely */
+            top: 20px; /* Distance from the top of the viewport */
+            right: 20px; /* Distance from the right side of the viewport */
+            font-size: 180px; /* Make the emoji larger */
+            animation: bounce 1s infinite; /* Animation for bouncing effect */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0); /* Original position */
+            }
+            40% {
+                transform: translateY(-20px); /* Move up */
+            }
+            60% {
+                transform: translateY(-10px); /* Move down */
+            }
+        }
+
+        @keyframes neon {
+            0% {
+                text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff007f, 0 0 60px #ff007f, 0 0 70px #ff007f, 0 0 80px #ff007f;
+            }
+        }
+
+.click-to-open {
+    position: absolute; /* Position the text absolutely */
+    bottom: 10px; /* Distance from the bottom of the emoji */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the text */
+    font-size: 16px; /* Font size for the text */
+    color: white; /* Text color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add shadow for better visibility */
+    white-space: nowrap;
+    font-style: italic;
+}
+
     </style>
 </head>
 <body>
@@ -140,7 +206,7 @@ button:hover {
 
  <div class="song">
             <p>7. LOVE YOU WITH ALL MY HEART BY ELLIE </p>
-            <audio id="song6" src="Love you with all my heart - CRUSH ( english version ) QUEEN OF TEARS OST cover by Ehllen Quezada [ ezmp3.cc ].mp3"></audio>
+            <audio id="song7" src="Love you with all my heart - CRUSH ( english version ) QUEEN OF TEARS OST cover by Ehllen Quezada [ ezmp3.cc ].mp3"></audio>
             <button onclick="playAudio('song7', this)">Play</button>
             <button onclick="pauseAudio('song7', this)">Pause</button>
             <button onclick="stopAudio('song7', this)">Stop</button>
@@ -154,7 +220,24 @@ button:hover {
             <button onclick="stopAudio('song8', this)">Stop</button>
         </div>
 
+ <div class="song">
+            <p>9. HURT (JOHNNY CASH) BY ELLIE </p>
+            <audio id="song9" src="HURT- A tribute to Johnny Cash ( Lyrics ) Cover by_ Ehllen Quezada [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song9', this)">Play</button>
+            <button onclick="pauseAudio('song9', this)">Pause</button>
+            <button onclick="stopAudio('song9', this)">Stop</button>
+        </div>
+
+
     </div>
+
+
+    <div class="love-letter-message"> you got 1 message </div>
+    <div class="love-letter">💌
+ <span class="click-to-open">click my heart to open</span>
+</div> <!-- Love letter emoji -->
+
+
 
     <script>
         function playAudio(songId, button) {
@@ -187,6 +270,85 @@ button:hover {
             activeButton.classList.add('active');
         }
     </script>
+
+
+<style>
+
+ .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+            font-family: open sans;
+        }
+
+        .modal-content {
+            background-color: white;
+            color: black;
+            font-family: open sans;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 600px; /* Maximum width */
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+
+<div id="greetingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Happy Birthday, Lexi!</h2>   <h5> 01/01/2025</h5>
+            <p>Brightest eyes in the world,</p>
+            <p>On this special day, I just want to remind you how much you are loved and cherished. You just don't know how truly amazing and inspiring you are. Muah
+May your birthday be filled with joy, laughter, and all the things that make you happy. You deserve the best today and always, I am so very proud of you at your work, You are always my ..IDOL.. Your hardwork and diligence have paid off. 
+<p> IPINAGMAMALAKI KITA! AT NG BANSA NATIN, if only our fellow filipinos have known your achievements I'm sure they will be proud and admire you as well. </p>
+<p>  Just don't forget to take care of yourself, while helping other people. I wish, there will be more filipino/ filipina like you that can make our country proud
+If only they knew who you are but.. I DO. 🥹 <p>
+
+<p> I'm sorry for my late birthday greeting, I just want to finished this website first then put my message here along with my playlist, I made this. for you.
+and the playlist that's my songs and also some songs for you, guess and pick 1 song. I have 1 special song for you.hehehe </p>
+
+            <p>Wishing you a fantastic year ahead!</p>
+            <p>With all my love mahal ko </p>
+            <p>~Ellie</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("greetingModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("greetingModal").style.display = "none";
+        }
+
+        // Add event listener to the love letter emoji
+        document.querySelector('.love-letter').addEventListener('click', openModal);
+    </script>
+
 
 </body>
 </html>
