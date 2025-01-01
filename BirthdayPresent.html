@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY LEXI</title>
+    <style>
+   body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    background-image: url('brighteyes.png'); 
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    margin: 0; /* Remove default margin */
+    color: white; /* Change text color to white for better contrast */
+}
+
+
+        h1 {
+            color: yellow;
+            margin: 20px 0; /* Space above and below the title */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: add shadow for better visibility */
+            position: fixed; 
+            top: 20px; /* Distance from the top of the viewport */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust to center the title */
+            font-size: 48px; /* Increase the font size (adjust as needed) */
+        }
+        .content {
+            text-align: left; /* Align content to the left */
+            position: absolute; /* Position the content absolutely */
+            left: 20px; /* Distance from the left side of the viewport */
+            top: 100px; /* Distance from the top of the viewport */
+        }
+        .song {
+            margin-bottom: 20px; /* Space between songs */
+        }
+       
+button {
+    background-color: white; /* Default button color */
+    color: black; /* Text color */
+    border: 1px solid black; /* Border */
+    padding: 2px 3px; /* Padding for the button */
+    margin-right: 5px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: blue; /* Change background color to blue on hover */
+    color: white; /* Change text color to white on hover */
+}
+
+
+/* Animated text styles */
+.animated-text {
+    position: fixed; 
+    top: 10px; /* Distance from the top of the viewport */
+    left: 10px; /* Distance from the left side of the viewport */
+    background-color: black; /* Black background */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    color: #ff0000; /* Neon red color */
+    font-size: 24px; /* Font size */
+    animation: neon 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff007f, 0 0 60px #ff007f, 0 0 70px #ff007f, 0 0 80px #ff007f;
+    }
+}
+    </style>
+</head>
+<body>
+
+    </style>
+</head>
+<body>
+
+    <h1>" MY PLAYLIST "</h1> 
+ <div class="animated-text">" REMEMBER THAT YOU ARE LOVED
+<BR> AND THAT I LOVE YOU "  ~E </div> 
+
+    <div class="content">
+        <div class="song">
+            <p>1. UNTIL THE END OF THE NIGHT FROM LEXI</p>
+            <audio id="song1" src="until the end of the night.mp3"></audio>
+            <button onclick="playAudio('song1', this)">Play</button>
+            <button onclick="pauseAudio('song1', this)">Pause</button>
+            <button onclick="stopAudio('song1', this)">Stop</button>
+        </div>
+        <div class="song">
+            <p>2. KAPAG AKO AY NAGMAHAL BY YENG CONSTANTINO</p>
+            <audio id="song2" src="Kapag Ako Ay Nagmahal - Yeng Constantino _ _Write About Love_ OST (Lyrics) [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song2', this)">Play</button>
+            <button onclick="pauseAudio('song2', this)">Pause</button>
+            <button onclick="stopAudio('song2', this)">Stop</button>
+        </div>
+
+  <div class="song">
+            <p>3. JUST AS I AM BY AIR SUPPLY</p>
+            <audio id="song3" src="Air Supply - Just As I Am (Lyrics) [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song3', this)">Play</button>
+            <button onclick="pauseAudio('song3', this)">Pause</button>
+            <button onclick="stopAudio('song3', this)">Stop</button>
+        </div>
+ <div class="song">
+            <p>4. YOU MADE ME LIVE AGAIN BY JANET BASCO </p>
+            <audio id="song4" src="You Made Me Live Again (LYRICS) by Janet Basco ♪ [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song4', this)">Play</button>
+            <button onclick="pauseAudio('song4', this)">Pause</button>
+            <button onclick="stopAudio('song4', this)">Stop</button>
+        </div>
+
+ <div class="song">
+            <p>5. NEVER BEEN TO ME BY ELLIE </p>
+            <audio id="song5" src="never been to me by ellie.mp3"></audio>
+            <button onclick="playAudio('song5', this)">Play</button>
+            <button onclick="pauseAudio('song5', this)">Pause</button>
+            <button onclick="stopAudio('song5', this)">Stop</button>
+        </div>
+
+ <div class="song">
+            <p>6. NOW AND FOREVER BY ELLIE </p>
+            <audio id="song6" src="Now and forever - LYRICS Richard Marx ( cover by ehllen quezada ) [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song6', this)">Play</button>
+            <button onclick="pauseAudio('song6', this)">Pause</button>
+            <button onclick="stopAudio('song6', this)">Stop</button>
+        </div>
+
+ <div class="song">
+            <p>7. LOVE YOU WITH ALL MY HEART BY ELLIE </p>
+            <audio id="song6" src="Love you with all my heart - CRUSH ( english version ) QUEEN OF TEARS OST cover by Ehllen Quezada [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song7', this)">Play</button>
+            <button onclick="pauseAudio('song7', this)">Pause</button>
+            <button onclick="stopAudio('song7', this)">Stop</button>
+        </div>
+
+ <div class="song">
+            <p>8. TURNING PAGE BY ELLIE </p>
+            <audio id="song8" src="Turning page_  cover by Ehllen Quezada [ ezmp3.cc ].mp3"></audio>
+            <button onclick="playAudio('song8', this)">Play</button>
+            <button onclick="pauseAudio('song8', this)">Pause</button>
+            <button onclick="stopAudio('song8', this)">Stop</button>
+        </div>
+
+    </div>
+
+    <script>
+        function playAudio(songId, button) {
+            const audio = document.getElementById(songId);
+            audio.play();
+            setActiveButton(button);
+        }
+
+        function pauseAudio(songId, button) {
+            const audio = document.getElementById(songId);
+            audio.pause();
+            setActiveButton(button);
+        }
+
+        function stopAudio(songId, button) {
+            const audio = document.getElementById(songId);
+            audio.pause();
+            audio.currentTime = 0; // Reset to the beginning
+            setActiveButton(button);
+        }
+
+        function setActiveButton(activeButton) {
+            // Get all buttons in the document
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                // Remove the active class from all buttons
+                button.classList.remove('active');
+            });
+            // Add the active class to the clicked button
+            activeButton.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
