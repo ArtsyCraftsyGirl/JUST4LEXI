@@ -373,5 +373,95 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
     </script>
 
 
+<div class="status-container1">
+    <textarea id="statusInput1" onfocus="clearDefault(this)" onblur="setDefault(this)">Post your status today</textarea>
+    <div class="button1-container">
+        <button onclick="saveStatus()">Post</button>
+        <button onclick="deleteStatus()">Delete</button>
+    </div>
+</div>
+
+
+<style>
+    .status-container1 {
+        margin-top: 200px; /* Increased space above the status container */
+        margin-left: 1000px; /* Move the container slightly to the right */
+        text-align: left; /* Align text to the left */
+        border-radius: 10px; 
+        position: fixed;
+     
+    }
+
+    #statusInput1 {
+        padding: 10px; /* Padding for the input */
+        font-size: 16px; /* Font size */
+        border: 1px solid #ccc; /* Border */
+        border-radius: 10px; /* Rounded corners */
+        width: 300px; 
+        height: 200px; /* Increased height */
+        resize: none; /* Prevent resizing */
+        overflow: auto; /* Allow scrolling if text overflows */
+        vertical-align: top; /* Align text to the top */
+        border: 2px solid black;
+    }
+
+    .button1-container {
+        margin-top: 10px; /* Space between input and buttons */
+        text-align: center; /* Center the buttons */
+    }
+
+    button1 {
+        padding: 10px 15px; /* Padding for the button */
+        margin-left: 10px; /* Space between buttons */
+        border: none; /* Remove border */
+        background-color: #ff50b2; /* Button color */
+        color: white; /* Text color */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    button1:hover {
+        background-color: #ff007f; /* Darker shade on hover */
+    }
+</style>
+<script>
+function clearDefault(input) {
+    if (input.value === "Post your status today") {
+        input.value = ""; // Clear the default message
+    }
+}
+
+function setDefault(input) {
+    if (input.value === "") {
+        input.value = "Post your status today"; // Reset to default if empty
+    }
+}
+
+function saveStatus() {
+    const statusInput1 = document.getElementById("statusInput1");
+    const statusMessage = statusInput1.value; // Use statusInput instead of statusInput1
+
+    // Save the statusMessage to local storage
+    localStorage.setItem("userStatus", statusMessage); 
+}
+
+function deleteStatus() {
+    localStorage.removeItem("userStatus"); // Remove the status from local storage
+    document.getElementById("statusInput1").value = "Post your status today"; // Reset the input field
+}
+
+// Function to load the status message when the page loads
+function loadStatus() {
+    const savedStatus = localStorage.getItem("userStatus");
+    if (savedStatus) {
+        document.getElementById("statusInput1").value = savedStatus; // Set the input field to the saved status
+    }
+}
+
+// Load the status when the page is loaded
+window.onload = loadStatus;
+</script>
+
+
 </body>
 </html>
