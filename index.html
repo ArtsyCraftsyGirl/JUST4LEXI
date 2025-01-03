@@ -374,7 +374,7 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
     </script>
 
 <div class="status-container1">
-    <textarea id="statusInput1" onfocus="clearDefault(this)" onblur="setDefault(this)">Post your status today!</textarea>
+    <textarea id="statusInput1" onfocus="clearDefault(this)" onblur="setDefault(this)">Post your status today</textarea>
     <div class="button1-container">
         <button id="postButton1" onclick="saveStatus()">Post</button>
         <button onclick="deleteStatus()">Delete</button>
@@ -460,7 +460,9 @@ function saveStatus() {
         // Change button text and color
         const postButton1 = document.getElementById("postButton1");
         postButton1.textContent = "Posted"; // Change text to "Posted"
-           }
+        postButton1.classList.remove("default"); // Remove default class
+        postButton1.classList.add("posted"); // Add posted class
+    }
 }
 
 function deleteStatus() {
@@ -474,21 +476,19 @@ function deleteStatus() {
     postButton1.classList.add("default"); // Add default class
 }
 
-
-function saveStatus() {
+// Function to load the status message when the page loads
+function loadStatus() {
+    const savedStatus = localStorage.getItem("userStatus");
     const statusInput1 = document.getElementById("statusInput1");
-    const statusMessage = statusInput1.value;
+    const postButton1 = document.getElementById("postButton1");
 
-    // Check if the input field value is not equal to the default message
-    if (statusMessage !== "Post your status today") {
-        // Save the statusMessage to local storage
-        localStorage.setItem("userStatus", statusMessage); 
-
-        // Change button text and color
-        const postButton1 = document.getElementById("postButton1");
+    if (savedStatus && savedStatus !== "Post your status today") {
+        statusInput1.value = savedStatus; // Set the input field to the saved status
         postButton1.textContent = "Posted"; // Change text to "Posted"
         postButton1.classList.remove("default"); // Remove default class
         postButton1.classList.add("posted"); // Add posted class
+    } else {
+        statusInput1.value = "Post your status today"; // Set default message if no saved status
     }
 }
 
