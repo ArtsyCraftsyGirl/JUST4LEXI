@@ -30,7 +30,7 @@ h1 {
         6px 6px 0 rgba(0, 0, 0, 0.7), /* Even further right shadow */
         8px 8px 0 rgba(0, 0, 0, 0.7); /* Furthest right shadow */
     position: fixed; 
-    top: 20px; /* Distance from the top of the viewport */
+    top: 10px; /* Distance from the top of the viewport */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust to center the title */
     font-size: 48px; /* Increase the font size (adjust as needed) */
@@ -48,7 +48,7 @@ h1 {
 button {
     background-color: white; /* Default button color */
     color: black; /* Text color */
-    border: 1px solid black; /* Border */
+    border: 3px outset black; /* Border */
     padding: 2px 3px; /* Padding for the button */
     margin-right: 5px; /* Space between buttons */
     cursor: pointer; /* Pointer cursor on hover */
@@ -56,10 +56,7 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: blue; /* Change background color to blue on hover */
-    color: white; /* Change text color to white on hover */
-}
+
 
 button:active, /* Change color when button is clicked */
 button.active {
@@ -154,6 +151,9 @@ button.active {
 <body>
 
     <h1>" MY PLAYLIST "</h1> 
+
+
+
  <div class="animated-text">" REMEMBER THAT YOU ARE LOVED
 <BR> AND THAT I LOVE YOU "  ~E </div> 
 
@@ -164,6 +164,7 @@ button.active {
             <button onclick="playAudio('song1', this)">Play</button>
             <button onclick="pauseAudio('song1', this)">Pause</button>
             <button onclick="stopAudio('song1', this)">Stop</button>
+            <span class="beat" style="display: none;">🎶</span>
         </div>
         <div class="song">
             <p>2. KAPAG AKO AY NAGMAHAL BY YENG CONSTANTINO</p>
@@ -372,11 +373,10 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
         document.querySelector('.love-letter').addEventListener('click', openModal);
     </script>
 
-
 <div class="status-container1">
-    <textarea id="statusInput1" onfocus="clearDefault(this)" onblur="setDefault(this)">Post your status today</textarea>
+    <textarea id="statusInput1" onfocus="clearDefault(this)" onblur="setDefault(this)">Post your status today!</textarea>
     <div class="button1-container">
-        <button onclick="saveStatus()">Post</button>
+        <button id="postButton1" onclick="saveStatus()">Post</button>
         <button onclick="deleteStatus()">Delete</button>
     </div>
 </div>
@@ -389,13 +389,12 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
         text-align: left; /* Align text to the left */
         border-radius: 10px; 
         position: fixed;
-     
     }
 
     #statusInput1 {
         padding: 10px; /* Padding for the input */
         font-size: 16px; /* Font size */
-        border: 1px solid #ccc; /* Border */
+        border: 2px solid #ccc; /* Border */
         border-radius: 10px; /* Rounded corners */
         width: 300px; 
         height: 200px; /* Increased height */
@@ -410,7 +409,9 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
         text-align: center; /* Center the buttons */
     }
 
-    button1 {
+  
+
+    .button1 {
         padding: 10px 15px; /* Padding for the button */
         margin-left: 10px; /* Space between buttons */
         border: none; /* Remove border */
@@ -420,10 +421,20 @@ and the playlist that's my songs and also some songs for you, guess and pick 1 s
         cursor: pointer; /* Pointer cursor on hover */
     }
 
-    button1:hover {
-        background-color: #ff007f; /* Darker shade on hover */
+    .posted {
+        background-color: #ff007f; /* Color when posted */
     }
+
+    
+
+    .default {
+        background-color: white; /* Color when default */
+    }
+
+   
 </style>
+
+
 <script>
 function clearDefault(input) {
     if (input.value === "Post your status today") {
@@ -439,28 +450,115 @@ function setDefault(input) {
 
 function saveStatus() {
     const statusInput1 = document.getElementById("statusInput1");
-    const statusMessage = statusInput1.value; // Use statusInput instead of statusInput1
+    const statusMessage = statusInput1.value;
 
-    // Save the statusMessage to local storage
-    localStorage.setItem("userStatus", statusMessage); 
+    // Check if the input field value is not equal to the default message
+    if (statusMessage !== "Post your status today") {
+        // Save the statusMessage to local storage
+        localStorage.setItem("userStatus", statusMessage); 
+
+        // Change button text and color
+        const postButton1 = document.getElementById("postButton1");
+        postButton1.textContent = "Posted"; // Change text to "Posted"
+           }
 }
 
 function deleteStatus() {
     localStorage.removeItem("userStatus"); // Remove the status from local storage
     document.getElementById("statusInput1").value = "Post your status today"; // Reset the input field
+
+    // Reset button text and color
+    const postButton1 = document.getElementById("postButton1");
+    postButton1.textContent = "Post"; // Change text back to "Post"
+    postButton1.classList.remove("posted"); // Remove posted class
+    postButton1.classList.add("default"); // Add default class
 }
 
-// Function to load the status message when the page loads
-function loadStatus() {
-    const savedStatus = localStorage.getItem("userStatus");
-    if (savedStatus) {
-        document.getElementById("statusInput1").value = savedStatus; // Set the input field to the saved status
+
+function saveStatus() {
+    const statusInput1 = document.getElementById("statusInput1");
+    const statusMessage = statusInput1.value;
+
+    // Check if the input field value is not equal to the default message
+    if (statusMessage !== "Post your status today") {
+        // Save the statusMessage to local storage
+        localStorage.setItem("userStatus", statusMessage); 
+
+        // Change button text and color
+        const postButton1 = document.getElementById("postButton1");
+        postButton1.textContent = "Posted"; // Change text to "Posted"
+        postButton1.classList.remove("default"); // Remove default class
+        postButton1.classList.add("posted"); // Add posted class
     }
 }
 
 // Load the status when the page is loaded
 window.onload = loadStatus;
 </script>
+
+
+  <div class="beat">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+  
+    </div>
+
+<style>
+
+.beat {
+    position: fixed;
+    padding: 3px;
+    transform: translateY(-220px) rotate(270deg); /* Move up by 20px */
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    font-family: "Vibur", cursive;
+}
+
+.box1,.box2,.box3,.box4,.box5 {
+ width: 10px;
+ height: 10px;
+ background: red;
+ margin: 3px;
+ animation: slide 1s linear infinite alternate;
+
+}
+
+.box2 {
+ background: green;
+ animation: slide 0.8s linear infinite alternate;
+}
+
+.box3 {
+ background: blue;
+ animation: slide .9s linear infinite alternate;
+
+}
+
+.box4 {
+ background: orange;
+ animation: slide .5s linear infinite alternate;
+}
+
+.box5 {
+background: purple;
+animation: slide .7s linear infinite alternate;
+}
+
+@keyframes slide {
+ 0% {
+  width: 10px;
+ }
+ 50% {
+  width: 45px;
+ }
+}
+
+
+</style>
 
 
 </body>
